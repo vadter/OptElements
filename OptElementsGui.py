@@ -7,7 +7,7 @@ class OrientZXFitAllTool:
   def GetResources(self):
     return {"MenuText": "OrZXAll",
 	    #"Accel": "Ctrl+R",
-	    "ToolTip": "Orientation ZX and fit all"};
+	    "ToolTip": "Orientation ZX and Fit All"};
   # end def
   def IsActive(self):
     if FreeCAD.ActiveDocument == None:
