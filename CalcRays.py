@@ -38,6 +38,7 @@ def CalculateFunction():
           # Normal at the point on the surface
           uv = ob1.Shape.Surface.parameter(Pob);
           Nob = ob1.Shape.normalAt(uv[0],uv[1]);
+          Nob=Nob*(1./Nob.Length);
           # Calculate point of intersection
           proj1=Vr*Nob;
           if (proj1!=0.):
@@ -82,6 +83,7 @@ def CalculateFunction():
           # Normal at the point on the surface
           uv = ob1.Shape.Surface.parameter(Pob);
           Nob = ob1.Shape.normalAt(uv[0],uv[1]);
+          Nob=Nob*(1./Nob.Length);
           # Calculate point of intersection
           proj1=Vr*Nob;
           if (proj1!=0.):
@@ -113,6 +115,7 @@ def CalculateFunction():
           # Normal at the point on the surface
           uv = ob1.Shape.Surface.parameter(Pob);
           Nob = ob1.Shape.normalAt(uv[0],uv[1]);
+          Nob=Nob*(1./Nob.Length);
           # Calculate point of intersection
           proj1=Vr*Nob;
           if (proj1!=0.):
@@ -156,6 +159,7 @@ def CalculateFunction():
           # Normal at the point on the surface
           uv = ob1.Shape.Surface.parameter(Pob);
           Nob = ob1.Shape.normalAt(uv[0],uv[1]);
+          Nob=Nob*(1./Nob.Length);
           # Calculate point of intersection
           proj1=Vr*Nob;
           if (proj1!=0.):
