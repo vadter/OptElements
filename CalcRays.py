@@ -22,9 +22,14 @@ def CalculateFunction():
       ray1=doc.getObject(osd.getContents(cl[3]+str(i)));
       # Point of the current ray
       Pr=ray1.Shape.Curve.StartPoint;
+      #Pr=FreeCAD.Vector(ray1.X1.Value,ray1.Y1.Value,ray1.Z1.Value);
       # Vector of the current ray
-      Vr=ray1.Shape.Curve.EndPoint-Pr;
+      #Vr=ray1.Shape.Curve.EndPoint-Pr;
+      Vr=FreeCAD.Vector(ray1.X2.Value-ray1.X1.Value, \
+                        ray1.Y2.Value-ray1.Y1.Value, \
+                        ray1.Z2.Value-ray1.Z1.Value);
       Vr=Vr*(1./Vr.Length);
+      
       PL+=[Pr];
       # Optical objects loop
       j=4;
