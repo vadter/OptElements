@@ -331,6 +331,7 @@ def CreateInitialRay():
   # end if
   ray_ob.X1=0.; ray_ob.Y1=0.; ray_ob.Z1=0.;
   ray_ob.X2=0.; ray_ob.Y2=0.; ray_ob.Z2=1.;
+  ray_ob.ViewObject.LineWidth=1.;
   Pr=FreeCAD.Vector(0.,0.,0.);
   ray_ob.Placement.Base=Pr;
   An=ray_ob.Placement.Rotation.toEuler();

@@ -402,6 +402,7 @@ def CalculateFunction():
         gr1_e=getattr(doc,'Rays');
         gr1_e.addObject(w1);
       # end if
+      w1.ViewObject.LineWidth=1.;
       w1.ViewObject.LineColor=ray1.ViewObject.LineColor;
       w1.Label="Ray"+ray1.Label;
       PL=[];
