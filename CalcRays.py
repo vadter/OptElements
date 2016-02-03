@@ -46,6 +46,11 @@ def CalculateFunction():
           Nob=Nob*(1./Nob.Length);
           # Calculate point of intersection
           proj1=Vr*Nob;
+          # Aligning the normal
+          if (proj1<0):
+            Nob=Nob*(-1);
+            proj1=-proj1;
+          # end if
           if (proj1!=0.):
             length1=((Pob-Pr)*Nob)/proj1;
             if (length1<100000.):
@@ -69,13 +74,19 @@ def CalculateFunction():
           if (Vi.Length<ob1.Radius):
             # Unity vector perpendicular to Nob and ei in plane of object
             epi=Nob.cross(ei);
-            # Decomposition of Vr on two projection along vectors Nob, ei, epi 
+            # Decomposition of Vr on projections along vectors Nob, ei, epi 
             Vn=Nob*Vr; Vei=ei*Vr; Vpi=epi*Vr;
             f1=float(osd.getContents(cl[16]+str(j)));
-            # Finding an angles of falling on the surface
-            Vei=-Vi.Length/f1+Vei;
+            # Finding an change of projections in plane of Vi
+            V1ei=Vei; V1n=Vn; V1=(V1ei**2.+V1n**2.)**0.5;
+            c1=-Vi.Length/f1+V1ei/V1n; c12=c1**2.;
+            sV2ei=cmp(c1,0); # signs of projections
+            V2n=V1*(1./(1.+c12))**0.5;
+            V2ei=sV2ei*V1*(c12/(1.+c12))**0.5;
+            #Vn=V2n; Vei=V2ei;
+            #Vei=-Vi.Length/f1+Vei;
             # New section direction
-            Vr=Nob*Vn+ei*Vei+epi*Vpi;
+            Vr=Nob*V2n+ei*V2ei+epi*Vpi;
           else:
             #Vr=None;
             break;
