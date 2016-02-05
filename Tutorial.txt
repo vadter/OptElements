@@ -1,3 +1,6 @@
 Short tutorial for OptElements module.
 
-...
+Main file of optical system (OS) properties is in OSData.
+To view or edit it, it is better to use OSProp button.
+When optical element is added to OS, it is added to OSData.
+Rays is added to other table in OSData.
