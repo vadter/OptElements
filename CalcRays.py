@@ -223,12 +223,26 @@ def CalculateFunction():
                   P1=Pr+Vr*l1;
                   if ((ob1.Shape.isInside(P1,err1,True)==True) and \
                     (l1>1.e-3)):
-                    if (ob1.Shape.isInside(P1-Vr*4.*err1,err1,True)==False):
-                      Lf1+=[[P1,N1,'in']];
+                    if ((ob1.Name).find('IPLT')==-1):
+                      if (ob1.Shape.isInside(P1-Vr*4.*err1,err1,True)==False):
+                        Lf1+=[[P1,N1,'in']];
+                      else:
+                        Lf1+=[[P1,N1,'out']];
+                      # end if
                     else:
-                      Lf1+=[[P1,N1,'out']];
-#                      FreeCAD.Console.PrintMessage(str(Lf1[-1])+"\n");
-                    # end if
+                      # For IPLT
+                      Pp1=f1[0].Surface.Position;
+                      Pp2=f1[1].Surface.Position;
+                      Pe1=P1-Vr*4.*err1;
+                      vp0=Pp2-Pp1;
+                      s1=(Pp1-Pe1)*vp0;
+                      s2=(Pp2-Pe1)*vp0;
+                      if (cmp(s1,0)==cmp(s2,0)):
+                        Lf1+=[[P1,N1,'in']];
+                      else:
+                        Lf1+=[[P1,N1,'out']];
+                      #end if
+                    # end if                    
                   # end if
                 # end if
               # end if
