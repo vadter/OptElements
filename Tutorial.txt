@@ -1,6 +1,31 @@
 Short tutorial for OptElements module.
 
+To install module OptElements in FreeCAD one can copy module folder in the folder Mod.
+
 Main file of optical system (OS) properties is in OSData.
-To view or edit it, it is better to use OSProp button.
+To view or edit OSData it is better to use OSPr button.
 When optical element is added to OS, it is added to OSData.
-Rays is added to other table in OSData.
+Every Ray is added to other table in OSData.
+
+Expamle:
+1. Create new document.
+2. Load OptElements workbench.
+3. Add Ray by pressing button RAY.
+4. Group (Folder) OpticalSystem will be created. See it in Combo View.
+5. Add paraxial lens (button PLENS).
+6. Add screen (SCR).
+7. Select PLEN object in Combo View in subfolder Element.
+8. In Combo View panel select Data-Placement-Position-z and move lens to 10 mm.
+9. Move the same object SCR to 110 mm.
+10. Select initial ray IR from subfolder Rays and move it up x=10 mm.
+11. Press calculation of ray propagation CalcRP.
+12. To view properties of optical element, PLEN for example, select it and press ElPr button.
+13. In opened window change focuse from 100 mm to 80 mm.
+14. Press CalcPR.
+15. Add another paraxial lens by pressing PLEN button - PLEN001 element willbe added. Move it to z=20 mm.
+16. Open OS properties by pressing OSPr button.
+17. Last paraxial lens will be added to the last position in list of optical elements.
+18. To trace rays in order PLEN-PLEN001-SCR, one must set the same order in optical elements table by pressing Up, Down button in OSPr window.
+19. It is possible multiple raytracing through one element if it will be multiple marked in table. It easy to do it by pressing Copy button. Also it is possible to delete element row by pressing Delete button.
+20. To create volume element press ElBuilder Button. Lens, prisms and plates can be created. Alse one can load step modeles: raytracing will work for all objects including spherical, cylindrical and plane faces.
+
